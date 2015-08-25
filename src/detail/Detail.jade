@@ -1,0 +1,162 @@
+extends ../layouts/Main
+
+block scripts 
+  script(src="Detail.js")
+  
+block content
+
+  ul.breadcrumbs2
+    li
+      a(href="../main/Main.html")
+        span.icon.mif-home
+    li
+      a(href="../main/Main.html") การให้บริการ
+    li
+      a(href="#") ข้อมูลการให้บริการ
+      
+  .grid.no-margin#loading
+    .row
+      .cell
+        div(data-role="preloader", data-type="metro", data-style="dark", style="margin: auto")
+  .grid
+    .row.cells5
+      .cell
+        .panel
+          .heading
+            span.icon.mif-home
+            span.title ข้อมูลผู้รับบริการ
+            
+          .content
+            p 
+              strong HN: &nbsp;
+              span#txtHN
+            p 
+              strong CID: &nbsp;
+              span#txtCID
+            p 
+              strong ชื่อ: &nbsp;
+              span#txtFullname
+              
+            p 
+              strong วันเกิด: &nbsp;
+              span#txtBirth
+            p
+              strong อายุ: 
+              span#txtAge
+              | &nbsp; (ปี)
+              strong &nbsp;เพศ: &nbsp;
+              span#txtSex
+            p
+              strong Typearea: 
+              p
+                span#txtTypearea
+            p
+              strong ผู้ป่วยเรื้อรัง: &nbsp;
+              span.bg-magenta.fg-white#txtChronic
+            p
+              strong ผู้ป่วยเบาหวาน: &nbsp;
+              span.bg-magenta.fg-white#txtIsDM
+              
+      .cell.colspan4
+        //- .progress.large(data-parts="true", data-role="progressBar", data-value="30", data-colors='{"bg-red": 33, "bg-yellow": 66, "bg-cyan": 90, "bg-green": 100}')
+
+        .tabcontrol
+          ul.tabs
+            li
+              a(href="#tabCVDRisk") CVD Risk
+            li
+              a(href="#tabDiagnosis") การวินิจฉัย
+            li
+              a(href="#tabProcedure") หัตถการ
+            li
+              a(href="#tabDrugs") เวชภัณฑ์
+            li
+              a(href="#tabCharges") ค่าใช้จ่าย
+            li
+              a(href="#tabLabs") ผลตรวจห้องปฏิบัติการ
+          .frames
+            .frame#tabCVDRisk
+              .grid
+                .row.cells3
+                  .cell.colspan2
+                    .panel
+                      .heading
+                        span.icon.mif-display
+                        span.title ข้อมูลการรับบริการ
+                        
+                      .content(style="background-color: white;")
+                        .grid
+                          .row.cells3
+                            .cell
+                              label วันที่
+                              .input-control.text.full-size
+                                input(type="text", disabled="disabled")#txtDateServ
+                            .cell.colspan2
+                              label คลินิก
+                              .input-control.text.full-size
+                                input(type="text", disabled="disabled")#txtClinic
+                          .row.cells2
+                            .cell
+                              label แพทย์ผู้ตรวจ
+                              .input-control.text.full-size
+                                input(type="text", disabled="disabled")#txtDoctor
+                            .cell
+                              label สิทธิ์การรักษา
+                              .input-control.text.full-size
+                                input(type="text", disabled="disabled")#txtPttype
+                          .row
+                            .cell
+                              label การวินิจฉัย
+                              .input-control.text.full-size
+                                input(type="text", disabled="disabled")#txtDiag
+                        h3
+                          | ประวัติการรับบริการ
+                        hr.bg-green
+                                
+                        table.table.striped.hovered.dataTable#tblHistory
+                  .cell
+                    .grid
+                      .row
+                        .cell
+                          .panel.collapsible(data-role="panel")
+                            .heading
+                              span.icon.mif-chart-bars
+                              span.title การประมวลผล CVD Risk
+                              
+                            .content(style="background-color: white;")
+                              table.table.dataTable#tblCurrentCVDChart
+                              div(style="text-align: center;")
+                                div#cvdChart.circle(data-dimension="200", data-text="<10%",
+                                data-width="30", data-fontsize="20", 
+                                data-percent="20", data-fgcolor="#00C853", 
+                                data-bgcolor="#eee",  data-total="100", 
+                                data-icon="long-arrow-up", data-icon-size="28", 
+                                data-icon-color="#fff")
+                      .row
+                        .cell
+                          .panel.collapsible(data-role="panel")
+                            .heading
+                              span.icon.mif-chart-bars
+                              span.title ค่า eGFR: CKD-EPI
+                            
+                            .content(style="background-color: white;")
+                              
+                              table.table.dataTable#tblCurrentGFRState
+                              
+                              div(style="text-align: center;")
+                                div#gfrChart.circle(data-dimension="200", data-text="47", data-info="ml/min/1.73m^2", 
+                                data-width="30", data-fontsize="30", data-percent="60", data-fgcolor="#F44336", 
+                                data-bgcolor="#eee",  data-total="100", 
+                                data-icon="long-arrow-up", data-icon-size="28", data-icon-color="#fff")
+                                
+            .frame#tabDiagnosis
+              table.table.striped.hovered.dataTable#tblDiagnosis
+            .frame#tabProcedure
+              table.table.striped.hovered.dataTable#tblProcedures
+            .frame#tabDrugs
+              table.table.striped.hovered.dataTable#tblDrugs
+            .frame#tabCharges
+              table.table.striped.hovered.dataTable#tblCharges
+            .frame#tabLabs
+              table.table.striped.hovered.dataTable#tblLabs
+              

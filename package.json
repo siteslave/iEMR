@@ -1,0 +1,40 @@
+{
+  "name": "cvdrisk",
+  "productName": "Cvdrisk",
+  "version": "0.0.0",
+  "description": "My classy app",
+  "license": "MIT",
+  "main": "app/main/Main.html",
+  "window": {
+    "height": 600,
+    "width": 1010,
+    "toolbar": true
+  },
+  "repository": "siteslave/cvdrisk",
+  "author": {
+    "name": "Satit Rianpit",
+    "email": "siteslave@msn.com",
+    "url": "github.com/siteslave"
+  },
+  "keywords": [
+    "electron-app"
+  ],
+  "dependencies": {
+    "fs-extra": "^0.23.1",
+    "home-path": "^1.0.0",
+    "knex": "^0.8.6",
+    "lodash": "^3.10.1",
+    "moment": "^2.10.6",
+    "mysql": "^2.8.0",
+    "q": "^1.4.1",
+    "q-foreach": "0.0.3",
+    "request": "^2.61.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-csslint": "^0.2.0",
+    "gulp-jade": "^1.1.0",
+    "gulp-jshint": "^1.11.2",
+    "gulp-watch": "^4.3.4"
+  }
+}

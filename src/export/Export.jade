@@ -1,0 +1,39 @@
+extends ../layouts/Main
+
+block scripts
+  script(src="Export.js")
+
+block content
+  .gl
+    .gl-cell.gl-md-12
+      .panel
+        .heading
+          span.icon.mif-floppy-disk
+          span.title ส่งออกข้อมูล
+
+        .content
+          .gl.gl-sm
+            .gl-cell.gl-sm-3
+              span ตั้งแต่ &nbsp;
+                div.input-control.text(data-role="datepicker", data-format="dd/mm/yyyy", data-locale="th")
+                  input(type="text")#txtStart
+                  button.button
+                    span.mif-calendar
+            .gl-cell.gl-sm-3
+              span ถึง &nbsp;
+                div.input-control.text(data-role="datepicker", data-format="dd/mm/yyyy", data-locale="th")
+                  input(type="text")#txtEnd
+                  button.button
+                    span.mif-calendar
+            .gl-cell(style="padding: 3px;")
+              button#btnExport.button.primary เริ่มส่งออกข้อมูล
+  //.flex-grid
+  //  .row.flex-just-center
+  //    .cell.size8
+  //
+  //      br
+  //      br
+  //      .flex-grid#loading
+  //        .row
+  //          .cell.size8
+  //            div(data-role="preloader", data-type="ring", data-style="dark", style="margin: auto")

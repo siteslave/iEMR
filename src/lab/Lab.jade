@@ -1,0 +1,39 @@
+extends ../layouts/Main
+
+block scripts
+  script(src="Lab.js")
+
+block content
+  ul.breadcrumbs2
+    li
+      a(href="../main/Main.html")
+        span.icon.mif-home
+    li
+      a(href="../main/Main.html") การให้บริการ
+    li
+      a(href="#") Lab Mapper
+
+  .grid
+      .row
+        .cell.padding10
+          h1
+            | Lab Mapper
+            small &nbsp; กำหนดรหัส LAB
+          hr.bg-green
+  .flex-grid
+      .row
+        .cell.size3
+          label Cretinine
+          div.input-control.select.full-size
+            select#slCretinine
+      .row
+        .cell.size3
+          label Cholesterol
+          div.input-control.select.full-size
+            select#slCholesterol
+
+      .row
+        .cell.size3
+          button#btnSave.button.success บันทึก 
+          | &nbsp;
+          a(href="../main/Main.html")#btnCancel.button ย้อนกลับ

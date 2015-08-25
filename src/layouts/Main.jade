@@ -1,0 +1,72 @@
+doctype
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    title CVD Risk for HOSxP and HOSxP_PCU
+    link(rel="stylesheet", href="../../vendor/metro/build/css/metro.min.css")
+    link(rel="stylesheet", href="../../vendor/metro/build/css/metro-icons.min.css")
+    link(rel="stylesheet", href="../../vendor/circliful/css/jquery.circliful.css")
+    link(rel="stylesheet", href="../../vendor/gridlayout/gridlayout.min.css")
+    link(rel="stylesheet", href="../css/index.css")
+
+    script(src="../../vendor/jquery/dist/jquery.min.js")
+    script(src="../../vendor/datatables/media/js/jquery.dataTables.min.js")
+    script(src="../../vendor/metro/build/js/metro.js")
+    script(src="../../vendor/circliful/js/jquery.circliful.min.js")
+    script(src="../../vendor/js-cookie/src/js.cookie.js")
+
+    script(src="../js/App.js")
+    script(src="../js/Config.js")
+    
+    block scripts
+    
+  body
+    div.app-bar(data-role="appbar")
+      a.app-bar-element(href="../main/Main.html")
+        span.mif-apps.mif-2x 
+        | &nbsp; CVD Risk App
+      span.app-bar-divider
+      ul.app-bar-menu
+        li
+          a(href="../main/Main.html")
+            span.mif-users.mif-2x 
+            | &nbsp;ผู้มารับบริการ
+        li
+          a(href="#").dropdown-toggle
+            span.mif-books.mif-2x
+            | &nbsp; ระบบงานอื่นๆ
+          ul.d-menu(data-role="dropdown")
+            li
+              a(href="#")
+                span.mif-lab.mif-lg
+                | &nbsp; สั่ง LAB Online
+            li.divider
+            li
+              a(href="#")
+                span.mif-users.mif-lg
+                | &nbsp; ทะเบียนผู้ป่วยเบาหวาน
+            li
+              a(href="#")
+                span.mif-users.mif-lg
+                | &nbsp; ทะเบียนผู้ป่วยความดันโลหิตสูง
+        li
+          a(href="#").dropdown-toggle
+            span.mif-tools.mif-2x 
+            | &nbsp; Tools
+          ul.d-menu(data-role="dropdown")
+            li
+              a(href="../lab/Lab.html")
+                span.mif-flow-tree.mif-lg 
+                | &nbsp; Lab Mapper
+            li
+              a(href="../settings/Settings.html")
+                span.mif-database.mif-lg 
+                | &nbsp; Connection Setting
+            li.divider
+            li
+              a(href="../export/Export.html")
+                span.mif-cabinet.mif-lg 
+                | &nbsp; Export Dataset
+    div.container
+      block content

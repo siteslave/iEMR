@@ -1,0 +1,24 @@
+extends ../layouts/Main
+
+block scripts
+  script(src="Main.js")
+
+block content
+  .grid.no-margin
+    .row
+      .cell.bg-white.padding10
+        div#loading(data-role="preloader", data-type="metro", data-style="dark", style="margin: auto")
+
+  div.grid
+    div.row
+      div.cell(style="text-align: center;")
+        | วันที่รับบริการ &nbsp;
+        div#divDate.input-control.text(data-format="dd/mm/yyyy", data-locale="th")
+          input(type="text")#txtDate
+          button.button
+            span.mif-calendar
+        | &nbsp;    
+        button#btnGetService.button.primary แสดง
+    div.row
+      div.cell.padding10
+        table.table.hovered.dataTable#tblVisit
