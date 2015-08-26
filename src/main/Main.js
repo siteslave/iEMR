@@ -138,7 +138,7 @@ $(function () {
   $('#tblVisit').on('click', 'a[data-name="btnGetEMR"]', function (e) {
     var table = $('#tblVisit').DataTable();
     var data = table.row( $(this).parents('tr') ).data();
-    window.location.href = "../emr/Emr.html?hn="+ data.hn + "&vn=" + data.vn;
+    window.location.href = "../emr/Emr.html?cid="+ data.cid;
   });
 
 });
