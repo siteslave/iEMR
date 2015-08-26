@@ -17,7 +17,7 @@ onload = function() {
 var homePath = getHomePath();
 
 // Check configure path exists
-var configPath = path.join(homePath, 'cvdrisk');
+var configPath = path.join(homePath, 'khos');
 fse.ensureDirSync(configPath);
 
 // Check configure file exists

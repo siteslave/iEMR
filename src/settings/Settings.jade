@@ -57,10 +57,14 @@ block content
         .cell.size6
           .flex-grid
             .row
-              .cell.size12
-                label อัปโหลด URL
+              .cell.size6
+                label Cloud URL
                 .input-control.text.full-size
-                  input(type="text")#txtUploadUrl
+                  input(type="text", placeholder="http://his.mkh.go.th:3000")#txtUrl
+              .cell.size6
+                label Private Key
+                .input-control.text.full-size
+                  input(type="text", placeholder="123456")#txtKey
       .row
         .cell.size6
           button#btnSave.button.success บันทึก 

@@ -11,7 +11,7 @@ block content
           span.icon.mif-floppy-disk
           span.title ส่งออกข้อมูล
 
-        .content
+        .content(style="background-color: white;")
           .gl.gl-sm
             .gl-cell.gl-sm-3
               span ตั้งแต่ &nbsp;
@@ -27,13 +27,16 @@ block content
                     span.mif-calendar
             .gl-cell(style="padding: 3px;")
               button#btnExport.button.primary เริ่มส่งออกข้อมูล
-  //.flex-grid
-  //  .row.flex-just-center
-  //    .cell.size8
-  //
-  //      br
-  //      br
-  //      .flex-grid#loading
-  //        .row
-  //          .cell.size8
-  //            div(data-role="preloader", data-type="ring", data-style="dark", style="margin: auto")
+          .gl.gl-sm
+            .gl-cell
+              table.table.striped.hovered.dataTable#tblFiles
+
+  .flex-grid
+    .row.flex-just-center
+      .cell.size8
+        br
+        br
+        .flex-grid#loading
+          .row
+            .cell.size8
+              div(data-role="preloader", data-type="ring", data-style="dark", style="margin: auto")

@@ -22,6 +22,7 @@
   "dependencies": {
     "fs-extra": "^0.23.1",
     "home-path": "^1.0.0",
+    "jszip": "^2.5.0",
     "knex": "^0.8.6",
     "lodash": "^3.10.1",
     "moment": "^2.10.6",

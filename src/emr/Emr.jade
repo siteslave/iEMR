@@ -12,7 +12,6 @@ block content
         li
             a(href="#") CLOUD EMR
 
-
     .gl#loading(style="display: none;")
         .gl-cell
             div(data-role="preloader", data-type="metro", data-style="dark", style="margin: auto")
@@ -33,7 +32,7 @@ block content
                         strong วันเกิด: &nbsp;
                         span#txtBirth
                     p
-                        strong อายุ:
+                        strong อายุ: &nbsp;
                         span#txtAge
                         | &nbsp; (ปี)
                         strong &nbsp;เพศ: &nbsp;
@@ -44,30 +43,6 @@ block content
                     span.title ประวัติ (EMR)
                 .content(style="background-color: white; padding: 0px;")
                     table.table.hovered.striped.dataTable#tblHistory
-                    //.listview-outlook(data-role="listview")
-                    //    .list
-                    //        .list-content
-                    //            .list-title รพท.มหาสารคาม
-                    //            .list-subtitle
-                    //                | 21/08/2558
-                    //                span.place-right 15:30
-                    //            .list-remark I10 XXX XXXXX
-                    //
-                    //    .list
-                    //        .list-content
-                    //            .list-title รพช.กันทรวิชัย
-                    //            .list-subtitle
-                    //                | 21/08/2558
-                    //                span.place-right 15:30
-                    //            .list-remark I10 XXX XXXXX
-                    //
-                    //    .list
-                    //        .list-content
-                    //            .list-title รพ.สต.โคกก่อ
-                    //            .list-subtitle
-                    //                | 21/08/2558
-                    //                span.place-right 15:30
-                    //            .list-remark I10 XXX XXXXX sfsdf sdf ds fdsf ds fsdf sdf dsfdsfsdsdfs
 
         .gl-cell.gl-md-8
             .tabcontrol
@@ -86,45 +61,38 @@ block content
                         a(href="#tabLabs") ผลตรวจห้องปฏิบัติการ
                 .frames
                     .frame#tabService
-                        .grid
-                            .row
-                                .cell
-                                    .panel
-                                        .heading
-                                            span.icon.mif-display
-                                            span.title ข้อมูลการรับบริการ
-                                        .content(style="background-color: white;")
-                                            .gl
-                                                .gl-cell.gl-md-2
-                                                    label วันที่
-                                                    .input-control.text.full-size
-                                                        input(type="text", disabled="disabled")#txtDateServ
-                                                .gl-cell.gl-md-1
-                                                    label เวลา
-                                                    .input-control.text.full-size
-                                                        input(type="text", disabled="disabled")#txtDateServ
-                                                .gl-cell.gl-md-9
-                                                    label โรงพยาบาล
-                                                    .input-control.text.full-size
-                                                        input(type="text", disabled="disabled")#txtClinic
-                                            .gl
-                                                .gl-cell.gl-md-4
-                                                    label ความดัน
-                                                    .input-control.text.full-size
-                                                        input(type="text", disabled="disabled")#txtPttype
-                                                .gl-cell.gl-md-4
-                                                    label น้ำหนัก (กก.)
-                                                    .input-control.text.full-size
-                                                        input(type="text", disabled="disabled")#txtPttype
-                                                .gl-cell.gl-md-4
-                                                    label ส่วนสูง (ซม.)
-                                                    .input-control.text.full-size
-                                                        input(type="text", disabled="disabled")#txtPttype
-                                            .gl
-                                                .gl-cell
-                                                    label มาด้วยอาการ
-                                                    .input-control.text.full-size
-                                                        input(type="text", disabled="disabled")#txtDoctor
+                        br
+                        .gl
+                            .gl-cell.gl-md-2
+                                label วันที่
+                                .input-control.text.full-size
+                                    input(type="text", disabled="disabled")#txtDateServ
+                            .gl-cell.gl-md-2
+                                label เวลา
+                                .input-control.text.full-size
+                                    input(type="text", disabled="disabled")#txtTimeServe
+                            .gl-cell.gl-md-8
+                                label โรงพยาบาล
+                                .input-control.text.full-size
+                                    input(type="text", disabled="disabled")#txtHospital
+                        .gl
+                            .gl-cell.gl-md-4
+                                label ความดัน
+                                .input-control.text.full-size
+                                    input(type="text", disabled="disabled")#txtBP
+                            .gl-cell.gl-md-4
+                                label น้ำหนัก (กก.)
+                                .input-control.text.full-size
+                                    input(type="text", disabled="disabled")#txtWeight
+                            .gl-cell.gl-md-4
+                                label ส่วนสูง (ซม.)
+                                .input-control.text.full-size
+                                    input(type="text", disabled="disabled")#txtHeight
+                        .gl
+                            .gl-cell
+                                label มาด้วยอาการ
+                                .input-control.text.full-size
+                                    input(type="text", disabled="disabled")#txtCC
 
 
                     .frame#tabDiagnosis

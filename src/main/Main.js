@@ -31,6 +31,21 @@ $(function () {
   });
   //
   var Main = {
+    _getHospcode: function () {
+      var q = Q.defer();
+      db('opdconfig')
+        .select('hospitalcode')
+        .limit(1)
+        .then(function (rows) {
+          q.resolve(rows[0].hospitalcode);
+        })
+        .catch(function (err) {
+          q.reject(err);
+        });
+
+      return q.promise;
+    },
+
     _getService: function (date) {
       var q = Q.defer();
 
@@ -48,7 +63,7 @@ $(function () {
         .leftJoin('ovstost as st', 'st.ovstost', 'o.ovstost')
         .where('o.vstdate', date)
         // .where('o.pt_subtype', 1)
-        .orderBy('o.vn')
+        .orderBy('o.hn', 'desc')
         .then(function (rows) {
           q.resolve(rows);
         })
@@ -60,6 +75,13 @@ $(function () {
 
     }
   }; // End Main{};
+
+  Main._getHospcode()
+    .then(function (hospcode) {
+      Cookies.set('hospcode', hospcode);
+    }, function (err) {
+      Cookies.set('hospcode', '00000');
+    });
 
   $('#btnGetService').on('click', function (e) {
     e.preventDefault();
@@ -91,10 +113,10 @@ $(function () {
                 '<button class="button dropdown-toggle warning"><span class="mif mif-search mif-sm"></span></button>' +
                 '<ul class="split-content d-menu place-right" data-role="dropdown">' +
                 '<li><a href="#" data-name="btnGetService"><span class="mif mif-search mif-lg"></span> ข้อมูลรับบริการ/CVD/GFR</a></li>' +
-                '<li><a href="#" data-name="btnGetEMR"><span class="mif mif-vpn-lock mif-lg"></span> Cloud EMR</a></li>' +
+                '<li><a href="#" data-name="btnGetEMR"><span class="mif mif-vpn-lock mif-lg"></span> ข้อมูลผ่าน CLOUD</a></li>' +
               '</ul>'
           } ],
-        "order": [[ 1, "desc" ]],
+        "order": [[ 0, "asc" ]],
         language: {
           searchPlaceholder: "คำที่ต้องการค้นหา...",
           search: "ค้นหา",
@@ -138,7 +160,7 @@ $(function () {
   $('#tblVisit').on('click', 'a[data-name="btnGetEMR"]', function (e) {
     var table = $('#tblVisit').DataTable();
     var data = table.row( $(this).parents('tr') ).data();
-    window.location.href = "../emr/Emr.html?cid="+ data.cid;
+    window.location.href = "../emr/Emr.html?cid="+ data.cid + "&hn=" + data.hn;
   });
 
 });
