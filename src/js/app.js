@@ -1,4 +1,4 @@
-var getHomePath = require('home-path');
+//var getHomePath = require('home-path');
 var fse = require('fs-extra');
 var fs = require('fs');
 var path = require('path');
@@ -14,10 +14,13 @@ onload = function() {
     nwin.maximize();
 };
 
-var homePath = getHomePath();
+var homePath = ngui.App.dataPath;
+
+console.log(homePath);
+//var homePath = getHomePath();
 
 // Check configure path exists
-var configPath = path.join(homePath, 'khos');
+var configPath = path.join(homePath, 'config');
 fse.ensureDirSync(configPath);
 
 // Check configure file exists
@@ -30,6 +33,10 @@ var defaultConfig = {
     database: 'hosxp_pcu',
     user: 'sa',
     password: 'sa'
+  },
+  cloud: {
+    url: "http://his.mkh.go.th:3000",
+    key: "123456789"
   }
 };
 

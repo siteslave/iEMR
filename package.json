@@ -1,27 +1,23 @@
 {
-  "name": "cvdrisk",
-  "productName": "Cvdrisk",
+  "name": "iEMR",
+  "productName": "iEMR",
   "version": "0.0.0",
-  "description": "My classy app",
+  "description": "iEMR",
   "license": "MIT",
-  "main": "app/main/Main.html",
+  "main": "app/login/Login.html",
   "window": {
     "height": 600,
     "width": 1010,
     "toolbar": true
   },
-  "repository": "siteslave/cvdrisk",
+  "repository": "siteslave/iEMR",
   "author": {
     "name": "Satit Rianpit",
     "email": "siteslave@msn.com",
     "url": "github.com/siteslave"
   },
-  "keywords": [
-    "electron-app"
-  ],
   "dependencies": {
     "fs-extra": "^0.23.1",
-    "home-path": "^1.0.0",
     "jszip": "^2.5.0",
     "knex": "^0.8.6",
     "lodash": "^3.10.1",

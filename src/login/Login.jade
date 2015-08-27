@@ -1,0 +1,26 @@
+extends ../layouts/Login
+block scripts
+    script(src="Login.js")
+block content
+    .login-form.padding20.block-shadow
+        form(action="#")
+            h1.text-light Login to service
+            hr.thin
+            br
+            div.input-control.text.full-size(data-role="input")
+                label(for="username") ชื่อผู้ใช้งาน:
+                input(type="text", name="username")#txtUsername
+                button.button.helper-button.clear
+                    span.mif-cross
+            br
+            br
+            div.input-control.password.full-size(data-role="input")
+                label(for="password") รหัสผ่าน:
+                input(type="password", name="password")#txtPassword
+                button.button.helper-button.reveal
+                    span.mif-looks
+            br
+            br
+            div.form-actions
+                button(type="button")#btnLogin.button.primary เข้าสู่ระบบ...
+                button(type="button")#btnClose.button.link ยกเลิก

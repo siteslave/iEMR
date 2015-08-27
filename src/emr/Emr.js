@@ -103,9 +103,11 @@ $(function () {
       }
     })
     .done(function (data) {
+        console.log(data);
       q.resolve(data);
       })
     .error(function (err) {
+        console.log(err);
       q.reject(err);
       });
 
@@ -250,41 +252,59 @@ $(function () {
       return Emr.getServiceHistory(cid);
     })
     .then(function (rows) {
-      var data = _.first(rows);
-      var date_serve = moment(data.true_date_serv).format('YYYY-MM-DD');
-      Emr.setTableData(data.hospcode, data.hn, date_serve, data.seq);
+      if (_.size(rows)) {
+        var data = _.first(rows);
+        var date_serve = moment(data.true_date_serv).format('YYYY-MM-DD');
+        Emr.setTableData(data.hospcode, data.hn, date_serve, data.seq);
 
-      $('#tblHistory').DataTable({
-        data: rows,
-        "ordering": false,
-        "columnDefs": [ {
-          "targets": 2,
-          "data": null,
-          "defaultContent": '<button class="button primary" data-name="btnGetService"><span class="mif mif-search mif-sm"></span></button>'
-        } ],
-        "columns": [
-          { data: 'date_serv', title: 'วันที่' },
-          { data: 'hospname', title: 'หน่วยบริการ' }
-        ],
-        "paging": true,
-        "info": false,
-        "searching": false,
-        language: {
-          searchPlaceholder: "คำที่ต้องการค้นหา...",
-          search: "ค้นหา",
-          "paginate": {
-            "next": "&gt;",
-            "previous": "&lt"
-          },
-          "emptyTable": "ไม่พบข้อมูล",
-          "info": "หน้า _PAGE_ จาก _PAGES_",
-          "loadingRecords": "กรุณารอซักครู่...",
-          "lengthMenu": "แสดง _MENU_ เรคอร์ด"
-        }
-      });
+        $('#tblHistory').DataTable({
+          data: rows,
+          "ordering": false,
+          "columnDefs": [ {
+            "targets": 2,
+            "data": null,
+            "defaultContent": '<button class="button primary" data-name="btnGetService"><span class="mif mif-search mif-sm"></span></button>'
+          } ],
+          "columns": [
+            { data: 'date_serv', title: 'วันที่' },
+            { data: 'hospname', title: 'หน่วยบริการ' }
+          ],
+          "paging": true,
+          "info": false,
+          "searching": false,
+          language: {
+            searchPlaceholder: "คำที่ต้องการค้นหา...",
+            search: "ค้นหา",
+            "paginate": {
+              "next": "&gt;",
+              "previous": "&lt"
+            },
+            "emptyTable": "ไม่พบข้อมูล",
+            "info": "หน้า _PAGE_ จาก _PAGES_",
+            "loadingRecords": "กรุณารอซักครู่...",
+            "lengthMenu": "แสดง _MENU_ เรคอร์ด"
+          }
+        });
 
+        $('#loading').fadeOut();
+      } else {
+        $('#loading').fadeOut();
+        $.Notify({
+          caption: 'เกิดข้อผิดพลาด',
+          content: 'ไม่พบข้อมูลประวัติรับบริการ',
+          icon: "<span class='mif-vpn-publ'></span>",
+          type: 'alert'
+        });
+      }
     }, function (err) {
       console.log(err);
+      $('#loading').fadeOut();
+      $.Notify({
+        caption: 'เกิดข้อผิดพลาด',
+        content: 'ไม่สามารถแสดงข้อมูลได้ กรุณาตรวจสอบการเชื่อมต่อ : ' + JSON.stringify(err),
+        icon: "<span class='mif-vpn-publ'></span>",
+        type: 'alert'
+      });
     });
 
   $(document).on('click', 'button[data-name="btnGetService"]', function (e) {

@@ -1,5 +1,5 @@
 var sysGetConfig = function (cb) {
-  var configPath = path.join(homePath, 'cvdrisk');
+  var configPath = path.join(homePath, 'config');
   var configFile = path.join(configPath, 'config.json');
 
   var config = fse.readJsonSync(configFile);
@@ -8,14 +8,14 @@ var sysGetConfig = function (cb) {
 };
 
 var sysGetConfigFile = function () {
-  var configPath = path.join(homePath, 'cvdrisk');
+  var configPath = path.join(homePath, 'config');
   var configFile = path.join(configPath, 'config.json');
 
   return configFile;
 };
 
 var sysGetConfigPath = function () {
-  var configPath = path.join(homePath, 'cvdrisk');
+  var configPath = path.join(homePath, 'config');
   return configPath;
 };
 

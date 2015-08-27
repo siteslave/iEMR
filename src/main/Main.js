@@ -109,12 +109,7 @@ $(function () {
         "columnDefs": [ {
               "targets": 4,
               "data": null,
-              "defaultContent": '<div class="dropdown-button place-right">' +
-                '<button class="button dropdown-toggle warning"><span class="mif mif-search mif-sm"></span></button>' +
-                '<ul class="split-content d-menu place-right" data-role="dropdown">' +
-                '<li><a href="#" data-name="btnGetService"><span class="mif mif-search mif-lg"></span> ข้อมูลรับบริการ/CVD/GFR</a></li>' +
-                '<li><a href="#" data-name="btnGetEMR"><span class="mif mif-vpn-lock mif-lg"></span> ข้อมูลผ่าน CLOUD</a></li>' +
-              '</ul>'
+              "defaultContent": '<a href="#" data-name="btnGetService" class="button success"><span class="mif mif-search"></span></a>'
           } ],
         "order": [[ 0, "asc" ]],
         language: {

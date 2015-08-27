@@ -681,6 +681,14 @@ $(function () {
   });
 
 
+  $('#btnEmrOnCloud').on('click', function (e) {
+    e.preventDefault();
+
+    var cid = $('#txtCID').text();
+    var hn = $('#txtHN').text();
+
+    window.location.href = "../emr/Emr.html?hn=" + hn + "&cid=" + cid;
+  });
 
   // initial tabs
   $(".tabcontrol").tabControl();

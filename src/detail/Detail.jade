@@ -21,7 +21,7 @@ block content
   .grid
     .row.cells5
       .cell
-        .panel
+        .panel.collapsible(data-role="panel")
           .heading
             span.icon.mif-home
             span.title ข้อมูลผู้รับบริการ
@@ -56,6 +56,12 @@ block content
             p
               strong ผู้ป่วยเบาหวาน: &nbsp;
               span.bg-magenta.fg-white#txtIsDM
+
+        br
+        button#btnEmrOnCloud.image-button.bg-pink.bg-active-amber.fg-white
+          | EMR ON THE CLOUD
+          span.icon.mif-vpn-lock.mif-lg.bg-darkPink
+
               
       .cell.colspan4
         //- .progress.large(data-parts="true", data-role="progressBar", data-value="30", data-colors='{"bg-red": 33, "bg-yellow": 66, "bg-cyan": 90, "bg-green": 100}')

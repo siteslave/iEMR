@@ -1,18 +1,15 @@
-var Q = require('q');
-var moment = require('moment');
-var fs = require('fs');
-var path = require('path');
-var fse = require('fs-extra');
-var _ = require('lodash');
-var request = require('request');
-
-var exportPath = path.join(getHomePath(), "cvdrisk/export");
-fse.ensureDirSync(exportPath);
-
-var targetFile = path.join(exportPath, 'CVDSCREEN.txt');
-var _hospcode = null;
 
 $(function () {
+  var Q = require('q');
+  var moment = require('moment');
+  var fs = require('fs');
+  var path = require('path');
+  var fse = require('fs-extra');
+  var _ = require('lodash');
+  var request = require('request');
+
+  var _hospcode = null;
+
   $('#loading').fadeOut();
   $('#divUpload').fadeOut();
 
@@ -25,9 +22,9 @@ $(function () {
     charset: 'utf8'
   });
 
-  var homeDir = path.join(homePath, 'khos');
-  var exportDir = path.join(homeDir, 'export');
-  var zipDir = path.join(homeDir, 'zip');
+  //var homeDir = path.join(homePath, 'khos');
+  var exportDir = path.join(homePath, 'export');
+  var zipDir = path.join(homePath, 'zip');
   // remove old file
   fse.removeSync(exportDir);
   // Check or create extract directory
@@ -127,12 +124,12 @@ $(function () {
         .innerJoin('patient as p', 'p.hn', 'o.hn')
         .innerJoin('ovstdiag as od', 'od.vn', 'o.vn')
         .whereNotNull('o.vn')
-        .where(function () {
-          this.whereBetween('od.icd10', ['E100', 'E149'])
-            .orWhere(function () {
-              this.whereBetween('od.icd10', ['I10', 'I159'])
-            })
-        })
+        //.where(function () {
+        //  this.whereBetween('od.icd10', ['E100', 'E149'])
+        //    .orWhere(function () {
+        //      this.whereBetween('od.icd10', ['I10', 'I159']);
+        //    });
+        //})
         .whereBetween('o.vstdate', [start, end])
         .then(function (rows) {
           q.resolve(rows);
